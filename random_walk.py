@@ -9,7 +9,7 @@ from All_Projects.My_Code_Essential_Python import graphs
 #if an exception is not thrown, then the random walk returns the entire history of the random walk as a list
 
 #1-dimension additive, mean-free random walk
-def additive_random_walk(num, p, increase, initial):
+def additive_random_walk(num=10, p=0.5, increase=1, initial=0):
     try:
         #Checks if iterations, probability, and increase quantities are sensible
         if 0 < num and 0 < p < 1 and 0 <= increase:
@@ -30,7 +30,7 @@ def additive_random_walk(num, p, increase, initial):
         return
 
 #1-dimension multiplicative, mean-free random walk
-def multiplicative_random_walk(num, p, increase, initial):
+def multiplicative_random_walk(num=10, p=0.5, increase=1.1, initial=100):
     try:
         #Checks if iterations, probability, increase, and initial quantities are reasonable
         if 0 < num and 0 < p < 1 and 1 < increase and 0 < initial:
@@ -48,7 +48,7 @@ def multiplicative_random_walk(num, p, increase, initial):
             return
     except:
         print("Random walk unsuccessful. Make sure all quantities are within acceptable parameters.")
-        raise
+        return
 
 #randomly walking along a directed, weighted graph
 #graph is the graph
@@ -56,7 +56,7 @@ def multiplicative_random_walk(num, p, increase, initial):
 #if you want to do an undirected graph instead, replace the line
 #destinations = graph.directed_adjacent_vertices(history[k]) with
 #destinations = graph.adjacent_vertices(history[k])
-def graph_random_walk(num, graph, w, initial):
+def graph_random_walk(num=10, graph=graphs.Graph(vertices={0},edges=set([])), w=1, initial=0):
     try:
         #Again, sanity-checking the inputs:
         if 0 < num and initial in graph.vertices and 0 <= w:
@@ -94,9 +94,9 @@ def main():
     print(additive_random_walk(100, 0.7, 1, 0)[100])
     print(multiplicative_random_walk(100, 0.7, 1.01, 100)[100])
     g0 = graphs.Graph(vertices={0,1,2,3,4,5,6,7,8},edges={(0,1),(0,2),(1,3),(1,4),(2,4),(2,5),(5,6),(6,5),(4,7),(7,8),(8,4)})
-    g1 = graphs.random_weighted_graph(7,0.6,3)
+    g1 = graphs.random_weighted_graph(15,0.6,3)
     print(g1.edges)
-    print(graph_random_walk(30,g1,1,0))
+    print(graph_random_walk(30,g1,0.1,0))
 
 if __name__ == '__main__': main()
 
