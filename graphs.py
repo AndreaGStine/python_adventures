@@ -107,75 +107,6 @@ class Graph:
     @property
     def edges(self):
         return self._edges
-"""
-    # Ignore everything below in quotes. It's an abandoned project.
-    # Distance function
-    def dist(self, x1, y1, x2, y2):
-        return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
-
-    # Function returns a list of coordinates that lie along the arrow from point (x1,y1) to (x2,y2)
-    def arrow(self, x1, y1, x2, y2, r):
-        head = (x1, y1)
-        coords = set([])
-        for t in range(0, 400 * r):
-            for i in range(0, math.ceil(20 * r) - 1):
-                for j in range(0, math.ceil(20 * r) - 1):
-                    if self.dist(x1 + (t / (400 * r)) * (x2 - x1), y1 + (t / (400 * r)) * (y2 - y1), i, j) < 0.5:
-                        coords.add((i, j))
-        return coords
-
-    # Drawing the graph
-    def draw(self):
-        # Constructing a finite plane as a matrix
-        r = math.ceil(len(self._vertices) / (2 * math.pi))
-        visual_matrix = []
-        row = []
-        for i in range(0, math.ceil(20 * r)):
-            row.append(' ')
-        for j in range(0, math.ceil(20 * r)):
-            visual_matrix.append(row[:])
-
-        # Placing each vertex around a circle in the plane
-        k = 0
-        t = 0
-        p = 0
-        while k < len(visual_matrix):
-            k1 = 0
-            while k1 < len(visual_matrix[k]):
-                if math.floor(self.dist(k1, k, 4 * r + 1, 4 * r + 1)) == 4 * r + 1:
-                    if t < len(self._vertices):
-                        if p % 4 == 0:
-                            visual_matrix[k][k1] = list(self._vertices)[t]
-                            t = t + 1
-                            p = p + 1
-                        else:
-                            p = p + 1
-
-                k1 = k1 + 1
-            k = k + 1
-
-        # Identifying coordinates in the plane where an edge should be passing through
-        for i in self._vertices:
-            for x1 in range(0, len(visual_matrix)):
-                for y1 in range(0, len(visual_matrix[x1])):
-                    for x2 in range(0, len(visual_matrix)):
-                        for y2 in range(0, len(visual_matrix[x2])):
-                            if (visual_matrix[x1][y1], visual_matrix[x2][y2]) in self._edges:
-                                for c in self.arrow(x1, y1, x2, y2, r):
-                                    if visual_matrix[c[0]][c[1]] not in range(0, 400, 1):
-                                        visual_matrix[c[0]][c[1]] = 'y'
-
-        # Printing the plane in a somewhat nice, clean way
-        for x in range(0, len(visual_matrix)):
-            for y in range(0, len(visual_matrix[x])):
-                if visual_matrix[x][y] in range(0, 400, 1):
-                    print(visual_matrix[x][y], end="")
-                elif visual_matrix[x][y] == 'y':
-                    print('.', end="")
-                else:
-                    print(' ', end="")
-            print('')
-"""
 
 #n: Max number of vertices
 #r2: Probability of a given arrow existing (remember there's roughly n^2 edges in a complete graph!)
@@ -253,7 +184,7 @@ def random_weighted_graph(n,r2,w):
                     else:
                         #Randomly assigning weights, Irwin-Hall distributed with mean w in the float case (R-valued)
                         r1 = 0
-                        for i in range(0,math.ceil(w)):
+                        for i in range(0,math.ceil(2*w)):
                             r1 += random.random()
                         e.add((j,k,r1))
 
