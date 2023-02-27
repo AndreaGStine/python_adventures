@@ -91,6 +91,7 @@ def graph_random_walk(num=10, graph=graphs.Graph(vertices={0},edges=set([])), w=
         return
 
 def main():
+    #prints an additive random walk, a multiplicative random walk, and a random walk on a randomly generated graph
     print(additive_random_walk(100, 0.7, 1, 0)[100])
     print(multiplicative_random_walk(100, 0.7, 1.01, 100)[100])
     g1 = graphs.random_weighted_graph(15,0.6,3)
