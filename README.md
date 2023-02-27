@@ -2,15 +2,7 @@
 
 What I have created so far:
 
-
-
-input.py:
- 
-  This was my second piece of code written!
-  
-  The code asks for user input of a name, and then a range and a single-variable function to perform the bisection root-finding method on
-
------------------------------
+tl;dr: The following is a file constructing the graph data structure and its properties and a random weighted, directed graph generator followed by code for an additive and geometric random walk and a random walk on a graph (including a randomly generated graph!)
 
 graphs.py:
   
