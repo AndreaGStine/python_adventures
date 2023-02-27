@@ -93,9 +93,7 @@ def graph_random_walk(num=10, graph=graphs.Graph(vertices={0},edges=set([])), w=
 def main():
     print(additive_random_walk(100, 0.7, 1, 0)[100])
     print(multiplicative_random_walk(100, 0.7, 1.01, 100)[100])
-    g0 = graphs.Graph(vertices={0,1,2,3,4,5,6,7,8},edges={(0,1),(0,2),(1,3),(1,4),(2,4),(2,5),(5,6),(6,5),(4,7),(7,8),(8,4)})
     g1 = graphs.random_weighted_graph(15,0.6,3)
-    print(g1.edges)
     print(graph_random_walk(30,g1,0.1,0))
 
 if __name__ == '__main__': main()
