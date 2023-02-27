@@ -1,5 +1,5 @@
 import random
-from All_Projects.My_Code_Essential_Python import graphs
+from Apython_adventures import graphs
 
 #For all random walks,
 #num is the number of iterations of the random walk
