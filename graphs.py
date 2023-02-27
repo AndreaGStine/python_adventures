@@ -14,7 +14,7 @@ class Graph:
     # Note the adjacency matrix gets majorly screwed up if you don't index your vertices as 0, 1, 2, ..., n
     def adjacency(self):
 
-        # Since I'm not using numpy, I'm making the matrix with nested lists
+        # I'm making the matrix with nested lists
         adjacency_matrix = []
         row = []
         for i in range(0, len(self._vertices)):
