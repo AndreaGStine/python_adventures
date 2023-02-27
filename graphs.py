@@ -196,6 +196,7 @@ def random_weighted_graph(n,r2,w):
 
 
 def main():
+    #Generates and then prints a random weighted graph
     g0 = random_weighted_graph(20,0.3,3)
 
     print(g0.vertices)
